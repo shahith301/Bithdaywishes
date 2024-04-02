@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navith Page1</title>
+    <style>
+        h1{
+            text-align: center;
+            color:gold;
+        }
+        
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+         }
+         
+    </style>
+    
+</head>
+<body onload="DateFunction(),currentTime()">
+    <h1>Happy Birthday Navith</h1>
+    <img src="Navithimage.jpg" alt="navithimg" class="center">
+    <p> Hope all your birthday wishes come true!
+        It's your special day get out there and celebrate!
+        Wishing you the biggest slice of happy today.
+        I hope your celebration gives you many happy memories!
+        Our age is merely the number of years the world has been enjoying us!</p>
+
+        Date: <span id="date"></span><br><br>
+        Time: <span id="clock"></span>
+
+        <script>
+            
+            function DateFunction(){
+       
+            const [month ,date1, day] = new Date().toLocaleDateString("en-US").split();
+            console.log(document.getElementById("date").innerHTML = month, date1, day);
+
+       }
+
+    //         function TimeFunction(){
+       
+    //         const time = new Date().toLocaleTimeString("en-US")
+    //         console.log(document.getElementById("time").innerHTML = time);
+    //    }
+
+       function currentTime() {
+       let date = new Date(); 
+       let hh = date.getHours();
+       let mm = date.getMinutes();
+       let ss = date.getSeconds();
+       let session = "AM";
+
+  if(hh == 0){
+      hh = 12;
+  }
+  if(hh > 12){
+      hh = hh - 12;
+      session = "PM";
+   }
+
+   hh = (hh < 10) ? "0" + hh : hh;
+   mm = (mm < 10) ? "0" + mm : mm;
+   ss = (ss < 10) ? "0" + ss : ss;
+    
+   let time = hh + ":" + mm + ":" + ss + " " + session;
+
+  document.getElementById("clock").innerText = time; 
+  let t = setTimeout(function(){ currentTime() }, 1000);
+  
+}
+currentTime();
+       
+        </script>
+</body>
+</html>
